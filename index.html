@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tymur – Czyszczenie mebli</title>
+    <meta name="description"
+          content="Profesjonalne czyszczenie mebli tapicerowanych w Warszawie. Szybki dojazd, uczciwe ceny. Zadzwoń: 798 134 446">
+    <meta name="keywords"
+          content="czyszczenie mebli, pranie tapicerki, sofa, kanapa, Warszawa">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111;
+            --subtext: #444;
+            --border: #ccc;
+            --accent: #25d366;
+        }
+        body.dark {
+            --bg: #0f0f0f;
+            --text: #f2f2f2;
+            --subtext: #aaa;
+            --border: #444;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+        body {
+            background: var(--bg);
+            color: var(--text);
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            transition: 0.3s;
+        }
+        header { margin-bottom: 40px; }
+        h1 { font-size: 36px; }
+        h2 { margin: 30px 0 10px; font-size: 22px; }
+        p, li { color: var(--subtext); line-height: 1.6; }
+        ul { list-style: none; }
+        li { padding: 6px 0; }
+        a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border); }
+        .cta {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        #themeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--text);
+        }
+        @media (max-width: 600px) {
+            body { padding: 20px 15px; }
+            h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+<button id="themeToggle">🌙</button>
+
+<header>
+    <h1>Tymur</h1>
+    <p>Profesjonalne czyszczenie mebli w Warszawie</p>
+    <a class="cta" href="https://wa.me/48798134446" target="_blank">💬 Napisz na WhatsApp</a>
+</header>
+
+<main>
+    <section>
+        <h2>O mnie</h2>
+        <p>
+            Profesjonalne czyszczenie tapicerki meblowej w Warszawie i okolicach. Dojazd do klienta, szybkie terminy i wysoka jakość.
+        </p>
+    </section>
+
+    <section>
+        <h2>Usługi</h2>
+        <ul id="services"></ul>
+    </section>
+
+    <section>
+        <h2>Kontakt</h2>
+        <p>📞 <a href="tel:+48798134446">798 134 446</a></p>
+        <p>📷 <a href="https://instagram.com/him.clean.waw" target="_blank">@him.clean.waw</a></p>
+    </section>
+</main>
+
+<footer>
+    <p>© <span id="year"></span> Tymur</p>
+</footer>
+
+<script>
+    const services = [
+        "Czyszczenie sof i kanap",
+        "Czyszczenie foteli",
+        "Czyszczenie materacy",
+        "Usuwanie plam i zapachów"
+    ];
+    const list = document.getElementById("services");
+    services.forEach(service => {
+        const li = document.createElement("li");
+        li.textContent = service;
+        list.appendChild(li);
+    });
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Тёмная тема
+    const toggle = document.getElementById("themeToggle");
+    toggle.onclick = () => {
+        document.body.classList.toggle("dark");
+        toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    };
+</script>
+
+</body>
+</html>
